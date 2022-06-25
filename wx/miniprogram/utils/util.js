@@ -15,5 +15,5 @@ const formatTime = (date) => {
 exports.formatTime = formatTime;
 const formatNumber = (n) => {
     const s = n.toString();
-    return s[1] ? s : '0' + s;
+    return s[1] ? s : '0' + s; 
 };
