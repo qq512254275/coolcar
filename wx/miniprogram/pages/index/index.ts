@@ -10,7 +10,7 @@ Page({
       showLocation: true,
       showScale: false,
       subKey: '',
-      layerStyle: -1,
+      layerStyle: 1,
       enableZoom: true,
       enableScroll: true,
       enableRotate: false,
@@ -39,36 +39,28 @@ Page({
         id: 1,
         latitude: 23.099994,
         longitude: 114.324520,
-        width: 50,
-        height: 50
+        width: 20,
+        height: 20
         },
-    ],
+    ]
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.redirectTo({
-      url: '../logs/logs?color=blue'
-    })
-  },
-  onLoad() {
-    console.log('livesycle: index onLoad')
-  },
-  onShow(){
-    console.log('livesycle: index onShow')
-  },
-  onHide(){
-    console.log('livesycle: index onHide')
-  },
-  onReady(){
-    console.log('livesycle: index onReady')
-  },
-  onUnload(){
-    console.log('livesycle: index onUnload')
-  },
-  
-  onBtnTap(){
-    this.setData({
-      motto: "button change"
+  onMyLocationTap(){
+    wx.getLocation({
+      type: 'gcj02',
+      success: res => {
+        this.setData({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude,
+          },
+        })
+      },
+      fail: () => {
+        wx.showToast({
+          icon: 'none',
+          title: '请前往设置页授权'
+        })
+      }
     })
   }
 })
