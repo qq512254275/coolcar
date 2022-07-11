@@ -13,5 +13,5 @@
   bindtap="onMyLocationTap"
   ></cover-image>
 </view>
-<view class="btn-container bg-grey round">扫码租车</view>
+<view class="btn-container bg-grey round" bindtap="onScanClicked">扫码租车</view>
 </map>

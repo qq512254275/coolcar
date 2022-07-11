@@ -3,6 +3,7 @@
 const app = getApp<IAppOption>()
 
 Page({
+  showMoveCar: false,
   data: {
     setting: {
       skew: 0,
@@ -44,6 +45,12 @@ Page({
         },
     ]
   },
+  onShow(){
+    this.showMoveCar = true
+  },
+  onHide(){
+    this.showMoveCar = false
+  },
   onMyLocationTap(){
     wx.getLocation({
       type: 'gcj02',
@@ -61,6 +68,43 @@ Page({
           title: '请前往设置页授权'
         })
       }
+    })
+  },
+  dest: {
+    latitude: 23.099994,
+    longitude: 113.324520,
+  },
+  moveCars(){
+    const map = wx.createMapContext("map")
+    const moveCar = () =>{
+      this.dest.latitude += 0.1
+      this.dest.longitude += 0.1
+      map.translateMarker({
+        destination: {
+          latitude: this.dest.latitude,
+          longitude: this.dest.longitude,
+        },
+        markerId: 0,
+        autoRotate: false,
+        rotate: 0,
+        duration: 5000,
+        animationEnd: () => {
+          if(this.showMoveCar){
+            moveCar()
+          }
+        },
+      })
+    }
+    moveCar()
+  },
+  onScanClicked(){
+    wx.scanCode({
+      success: () =>{
+        wx.navigateTo({
+          url: '/pages/register/register'
+        })
+      },
+      fail: console.error,
     })
   }
 })
