@@ -8,8 +8,31 @@
         <view class="lic-tmpl">
             <image class="stretch" src="{{licImgURL}}" />
         </view>
-        <view class="lic-form">
-
+        <view class="lic-form margin-top-lg">
+            <view class="cu-form-group">
+                <view class="title">驾驶证号</view>
+                <input placeholder="驾驶证号"></input>
+            </view>
+            <view class="cu-form-group">
+                <view class="title">姓名</view>
+                <input placeholder="姓名"></input>
+            </view>
+            <view class="cu-form-group">
+                <view class="title">普通选择</view>
+                <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}">
+                    <view class="picker">
+                        {{genders[genderIndex]}}
+                    </view>
+                </picker>
+            </view>
+            <view class="cu-form-group">
+                <view class="title">出生日期</view>
+                <picker mode="date" value="{{date}}" bindchange="onBirsdayChange">
+                    <view class="picker">
+                        {{date}}
+                    </view>
+                </picker>
+            </view>
         </view>
     </block>
 </view>

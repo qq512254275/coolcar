@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    licImgURL: undefined as string | undefined
+    genders: ['未知','男','女','其他'],
+    genderIndex: 0,
+    date: '1990-01-01',
+    licImgURL: '/resources/sedan.png' as string | undefined
   },
   onUploadLic(){
     wx.chooseMedia({
@@ -18,4 +21,14 @@ Page({
       },
     })
   },
+  onGenderChange(e: any){
+    this.setData({
+      genderIndex: e.detail.value,
+    })
+  },
+  onBirsdayChange(e: any){
+    this.setData({
+      date: e.detail.value,
+    })
+  }
 })

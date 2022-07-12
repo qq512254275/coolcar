@@ -29,3 +29,11 @@
 .cuIcon-camerafill{
     font-size: 172rpx;
 }
+
+.lic-form{
+    width: 600rpx;
+}
+
+.cu-form-group .title {
+    min-width: calc(4em + 30rpx);
+}
