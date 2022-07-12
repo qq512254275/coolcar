@@ -8,7 +8,10 @@ Page({
     genders: ['未知','男','女','其他'],
     genderIndex: 0,
     date: '1990-01-01',
-    licImgURL: '/resources/sedan.png' as string | undefined
+    licNo: '',
+    name: '',
+    licImgURL: '',
+    state: 'UNSUBMITTED' as 'UNSUBMITTED' | 'PENDING' | 'VERIFIED',
   },
   onUploadLic(){
     wx.chooseMedia({
@@ -17,6 +20,14 @@ Page({
           this.setData({
             licImgURL: res.tempFiles[0].tempFilePath
           })
+          setTimeout(()=>{
+            this.setData({
+              licNo: '1345967498',
+              name: '张三',
+              date: '1989-03-15',
+              genderIndex: 1,
+            })
+          }, 1000)
         }
       },
     })
@@ -29,6 +40,28 @@ Page({
   onBirsdayChange(e: any){
     this.setData({
       date: e.detail.value,
+    })
+  },
+  onSubmit(){
+    this.setData({
+      state: 'PENDING'
+    }),
+    setTimeout(() =>{
+      this.onLicVerified()
+    }, 3000)
+  },
+  onReSubmit(){
+    this.setData({
+      state: 'UNSUBMITTED',
+      licImgURL: '',
+    })
+  },
+  onLicVerified(){
+    this.setData({
+      state: 'VERIFIED',
+    }),
+    wx.redirectTo({
+      url: '/page/lock/lock',
     })
   }
 })
