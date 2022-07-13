@@ -10,7 +10,10 @@
         <button wx:if="{{!hasUserInfo}}" class="cu-avatar round lg bg-grey margin-xs" bindtap="onGetUserInfo">
             <text class="cuIcon-people"></text>
         </button>
-        <image class="cu-avatar round lg bg-grey margin-xs" wx:if="{{hasUserInfo}}" src="{{avatarURL}}" />
+        <view class="switch-container" wx:if="{{hasUserInfo}}">
+            <image class="cu-avatar round lg bg-grey margin-xs"  src="{{avatarURL}}" />
+            <switch bindchange="onShareLocation"  />
+        </view>
         <view class="margin-top">实时展示我的头像</view>
     </view>
     <button class="bg-grey lg" style="width:80%">立即开锁</button>
