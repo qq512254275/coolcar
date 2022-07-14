@@ -10,8 +10,9 @@ Page({
     avatarURL: '',
     hasUserInfo: true,
   },
-  async onLoad(opt) {
-    console.log('opt.car_id = ', opt.car_id)
+  async onLoad(opt: Record<'car_id', string>) {
+    const o: routing.LockOpts = opt
+    console.log('opt.car_id = ', o.car_id)
     // const userInfo = await getApp<IAppOption>().globalData.userInfo
     // this.setData({
     //   avatarURL: userInfo.avatarUrl,

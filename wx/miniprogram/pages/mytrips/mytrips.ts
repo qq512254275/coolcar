@@ -1,3 +1,4 @@
+import { routing } from "../../utils/routing"
 import { userInfoKey } from "../../utils/wxapi"
 
 Page({
@@ -71,7 +72,7 @@ Page({
   },
   onRegisterTap(){
     wx.navigateTo({
-      url: '/pages/register/register'
+      url: routing.register()
     })
   }
 })

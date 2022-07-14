@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing"
+
 // pages/register/register.ts
 Page({
 	redirectUrl: '',
@@ -14,9 +16,10 @@ Page({
 		state: 'UNSUBMITTED' as 'UNSUBMITTED' | 'PENDING' | 'VERIFIED',
 		redirectUrl: '',
 	},
-	onLoad(opt){
-		if(opt.redirect){
-			this.redirectUrl = decodeURIComponent(opt.redirect)
+	onLoad(opt: Record<'redirect', string>){
+		const o: routing.registerOpts = opt
+		if(o.redirect){
+			this.redirectUrl = decodeURIComponent(o.redirect)
 		}
 	},
 	onUploadLic(){

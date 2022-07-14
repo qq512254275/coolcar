@@ -1,6 +1,7 @@
 // index.ts
 // 获取应用实例
 //const app = getApp<IAppOption>()
+import { routing } from "../../utils/routing"
 import { userInfoKey } from "../../utils/wxapi"
 
 Page({
@@ -110,9 +111,13 @@ Page({
     wx.scanCode({
       success: () =>{
         const car_id = 'car123'
-        const redirectUrl = `/pages/lock/lock?car_id=${car_id}`
+        const redirectUrl = routing.lock({
+          car_id: car_id
+        })
         wx.navigateTo({
-          url: `/pages/register/register?redirect=${encodeURIComponent(redirectUrl)}`
+          url: routing.register({
+            redirectURL: redirectUrl
+          })
         })
       },
       fail: console.error,
@@ -120,7 +125,7 @@ Page({
   },
   onMyTripsTap(){
     wx.navigateTo({
-      url: '/pages/mytrips/mytrips'
+      url: routing.mytrips()
     })
   }
 })
