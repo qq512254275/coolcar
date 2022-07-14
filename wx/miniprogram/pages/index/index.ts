@@ -1,6 +1,7 @@
 // index.ts
 // 获取应用实例
-const app = getApp<IAppOption>()
+//const app = getApp<IAppOption>()
+import { userInfoKey } from "../../utils/util"
 
 Page({
   showMoveCar: false,
@@ -43,7 +44,15 @@ Page({
         width: 20,
         height: 20
         },
-    ]
+    ],
+    hasUserInfo: false,
+    avatarURL: '',
+  },
+  onLoad(){
+    this.setData({
+      avatarURL: wx.getStorageSync(userInfoKey).avatarUrl || '',
+      hasUserInfo: wx.getStorageSync(userInfoKey).avatarUrl? true: false,
+ })
   },
   onShow(){
     this.showMoveCar = true
@@ -97,14 +106,21 @@ Page({
     }
     moveCar()
   },
-  onScanClicked(){
+  onScanTap(){
     wx.scanCode({
       success: () =>{
+        const car_id = 'car123'
+        const redirectUrl = `/pages/lock/lock?car_id=${car_id}`
         wx.navigateTo({
-          url: '/pages/register/register'
+          url: `/pages/register/register?redirect=${encodeURIComponent(redirectUrl)}`
         })
       },
       fail: console.error,
+    })
+  },
+  onMyTripsTap(){
+    wx.navigateTo({
+      url: '/pages/mytrips/mytrips'
     })
   }
 })

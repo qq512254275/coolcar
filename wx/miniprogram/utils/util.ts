@@ -35,3 +35,6 @@ export function getUserInfo(): Promise<WechatMiniprogram.GetUserInfoSuccessCallb
     })
   })
 }
+
+export const shareLocationKey = "share_location"
+export const userInfoKey = "user"

@@ -7,11 +7,12 @@
   markers="{{markers}}"
 >
 <view class="icon-container">
-  <cover-image src="/resources/account.png"></cover-image>
+  <cover-image class="round" 
+  src="{{avatarURL? avatarURL: '/resources/account.png'}}" bindtap="onMyTripsTap"></cover-image>
   <cover-image 
   src="/resources/my_location.png"
   bindtap="onMyLocationTap"
   ></cover-image>
 </view>
-<view class="btn-container bg-grey round" bindtap="onScanClicked">扫码租车</view>
+<view class="btn-container bg-grey round" bindtap="onScanTap">扫码租车</view>
 </map>

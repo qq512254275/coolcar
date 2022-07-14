@@ -1,0 +1,31 @@
+.time .cuIcon-timefill{
+    color: orange;
+}
+
+.time text {
+    font-size: 68rpx;
+}
+
+.container {
+    height: 100%;
+    flex-direction: column-reverse;
+    justify-content: start;
+}
+
+#map {
+    width: 100%;
+    flex-grow: 1;
+}
+
+.fee {
+    text-align: center;
+}
+
+.time-driven {
+    margin-left: 30rpx;
+    font-weight: bold;
+}
+
+page {
+    height: 100%;
+}
