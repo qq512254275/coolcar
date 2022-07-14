@@ -1,4 +1,5 @@
-import { userInfoKey, shareLocationKey } from "../../utils/util"
+import { userInfoKey, shareLocationKey } from "../../utils/wxapi"
+import { routing } from "../../utils/routing"
 
 Page({
   /**
@@ -60,7 +61,9 @@ Page({
         const trip_id = 'trip456'
         setTimeout(() => {
           wx.redirectTo({
-            url: `/pages/driving/driving?trip_id=${trip_id}`,
+            url: routing.driving({
+              trip_id: trip_id
+            }),
             complete: () => {
               wx.hideLoading()
             }

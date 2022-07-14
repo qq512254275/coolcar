@@ -1,4 +1,4 @@
-import { userInfoKey } from "../../utils/util"
+import { userInfoKey } from "../../utils/wxapi"
 
 Page({
 

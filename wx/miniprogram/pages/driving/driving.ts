@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing"
+
 const centPerSec = 0.7
 
 function formatDuration(sec: number){
@@ -29,8 +31,9 @@ Page({
     elapsed: '00:00:00',
     fee: '0.00',
   },
-  onLoad(opt){
-    console.log('opt.trip_id = ', opt.trip_id)
+  onLoad(opt: Record<'trip_id', string>){
+    const o: routing.DrivingOpts = opt
+    console.log('opt.trip_id = ', o.trip_id)
     this.setupLocationUpdator()
     this.setupTimer()
   },

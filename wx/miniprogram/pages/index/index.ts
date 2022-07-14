@@ -1,7 +1,7 @@
 // index.ts
 // 获取应用实例
 //const app = getApp<IAppOption>()
-import { userInfoKey } from "../../utils/util"
+import { userInfoKey } from "../../utils/wxapi"
 
 Page({
   showMoveCar: false,
