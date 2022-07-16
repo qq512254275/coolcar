@@ -53,7 +53,8 @@ Page({
     this.setData({
       avatarURL: wx.getStorageSync(userInfoKey).avatarUrl || '',
       hasUserInfo: wx.getStorageSync(userInfoKey).avatarUrl? true: false,
- })
+    })
+    console.log(this.data.avatarURL)
   },
   onShow(){
     this.showMoveCar = true

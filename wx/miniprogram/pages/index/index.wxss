@@ -18,7 +18,7 @@ page {
     opacity: .6;
 }
 
-.icon-container cover-image {
+.icon-container image {
     width: 60rpx;
     height: 60rpx;
 }

@@ -1,6 +1,5 @@
 import { routing } from "../../utils/routing"
 
-// pages/register/register.ts
 Page({
 	redirectUrl: '',
 	/**
